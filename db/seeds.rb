@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts 'Destroying movies'
+List.destroy_all
+Bookmark.destroy_all
 Movie.destroy_all
 puts 'Movies destroyed'
 
