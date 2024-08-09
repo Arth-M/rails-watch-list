@@ -7,7 +7,7 @@
   <%= @list.name %>
 </div>
 <%else %>
-  <%= cl_image_tag("eim7guzq5mx558k2nrfm", width: 400, height: 300, crop: :fill) %>
+  <%= image_tag("https://res.cloudinary.com/dw9vzaips/image/upload/fl_preserve_transparency/v1723201445/eim7guzq5mx558k2nrfm.jpg?_s=public-apps", width: 400, height: 300, crop: :fill) %>
 <% end %>
 
 <p><%= @list.name %></p>
@@ -15,10 +15,15 @@
 <p><%= button_to "Delete list", @list, method: :delete %></p>
 
 <% @movies.each do |movie| %>
-<%= movie.title %>
-<%= movie.overview %>
-<%= movie.poster_url %>
+<div class="card-product">
+  <%= image_tag(movie.poster_url, size: "140x180") %>
+  <div class="card-product-infos">
+    <h2><%= movie.title %></h2>
+    <p><%= movie.overview %></p>
+  </div>
+</div>
 <% end %>
+
 
 <p><% @bookmark.each do |bookmark_single| %></p>
 <p><%= bookmark_single.comment %> - <%= Movie.find(bookmark_single.movie_id).title %></p>
