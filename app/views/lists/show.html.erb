@@ -9,4 +9,4 @@
 <p><%= bookmark_single.comment %> - <%= Movie.find(bookmark_single.movie_id).title %></p>
 <p><%= link_to "Delete comment", bookmark_path(bookmark_single), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
 <% end %>
-<p><%= link_to 'Return to all lists', lists_path %></p>
+<p><%= link_to 'Return to all lists', root_path %></p>
