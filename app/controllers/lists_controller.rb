@@ -18,6 +18,7 @@ class ListsController < ApplicationController
 
   def show
     @list=List.find(params[:id])
+    @movies= @list.movies
     @bookmark =  Bookmark.where(list_id: @list)
   end
 

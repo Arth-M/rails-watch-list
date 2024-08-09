@@ -2,15 +2,24 @@
 <p>Find me in app/views/lists/show.html.erb</p>
 
 <% if @list.photo.attached? %>
-  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
+  rgba(0,0,0,0.3)), url('<%= @list.photo.url %>')" >
+  <%= @list.name %>
+</div>
 <%else %>
-  <%= cl_image_tag("gij4pjateucauuswy6yg",
-  width: 400, height: 300, crop: :fill) %>
+  <%= cl_image_tag("eim7guzq5mx558k2nrfm", width: 400, height: 300, crop: :fill) %>
 <% end %>
 
 <p><%= @list.name %></p>
 <p><%= link_to 'Add a movie', new_list_bookmark_path(@list) %></p>
 <p><%= button_to "Delete list", @list, method: :delete %></p>
+
+<% @movies.each do |movie| %>
+<%= movie.title %>
+<%= movie.overview %>
+<%= movie.poster_url %>
+<% end %>
+
 <p><% @bookmark.each do |bookmark_single| %></p>
 <p><%= bookmark_single.comment %> - <%= Movie.find(bookmark_single.movie_id).title %></p>
 <p><%= link_to "Delete comment", bookmark_path(bookmark_single), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
