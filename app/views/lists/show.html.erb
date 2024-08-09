@@ -1,6 +1,12 @@
 <h1>Lists#show</h1>
 <p>Find me in app/views/lists/show.html.erb</p>
 
+<% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<%else %>
+  <%= cl_image_tag("gij4pjateucauuswy6yg",
+  width: 400, height: 300, crop: :fill) %>
+<% end %>
 
 <p><%= @list.name %></p>
 <p><%= link_to 'Add a movie', new_list_bookmark_path(@list) %></p>

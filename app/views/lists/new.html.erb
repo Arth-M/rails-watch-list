@@ -3,5 +3,7 @@
 
 <%= simple_form_for(@new_list) do |list| %>
   <%= list.input :name, :label => 'Name your new list', :placeholder => 'Imaginaries' %>
+  <%= list.input :photo, as: :file %>
   <%= list.button :submit %>
 <% end %>
+<p><%= link_to 'Return to all lists', root_path %></p>
